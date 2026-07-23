@@ -1,0 +1,274 @@
+/* FCS Zytig — Layout nach dem Design-System der FC-Schattdorf-Website (DESIGN.md) */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+:root {
+  --fcx-red: #e63124;
+  --fcx-red-deep: #d9261c;
+  --fcx-ink: #181818;
+  --fcx-ink-soft: #1f2937;
+  --fcx-bg: #f5f5f5;
+  --fcx-mist: #f6f2f1; /* Vereinsgrau: helles Grau mit minimalem Rotstich */
+  --fcx-white: #ffffff;
+  --fcx-muted: #52575e; /* dunkler gezogen für ≥4.5:1 auf Weiss */
+  --radius-content: 8px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--fcx-ink);
+  background: var(--fcx-white);
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm 16mm;
+  position: relative;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  gap: 8mm;
+}
+.page:last-of-type { page-break-after: auto; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+}
+
+/* ---------- Kopfzeile (jede Seite) ---------- */
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--fcx-ink);
+  color: var(--fcx-white);
+  padding: 10px 16px;
+}
+.masthead .brand { display: flex; align-items: center; gap: 12px; }
+.masthead img.logo { height: 40px; width: auto; }
+.masthead .titel {
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.masthead .meta {
+  text-align: right;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fcx-white);
+  opacity: 0.85;
+}
+.masthead .strapline {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--fcx-white);
+  opacity: 0.75;
+  margin-top: 2px;
+}
+.accent-line { height: 4px; background: var(--fcx-red); }
+
+/* ---------- Leitartikel ---------- */
+.lead { display: flex; flex-direction: column; gap: 6mm; }
+.lead .kategorie {
+  display: inline-block;
+  background: var(--fcx-red-deep);
+  color: var(--fcx-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.375rem 0.75rem;
+  width: fit-content;
+}
+.lead h1 {
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+.lead .dachzeile {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fcx-ink-soft);
+  margin: 0;
+}
+.lead .bild-platz {
+  background: var(--fcx-mist);
+  border: 1px dashed #c9c2c0;
+  border-radius: var(--radius-content);
+  height: 70mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fcx-muted);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+.lead .bild-platz img { width: 100%; height: 100%; object-fit: cover; }
+.lead .fliesstext {
+  columns: 2;
+  column-gap: 8mm;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--fcx-ink);
+}
+.lead .fliesstext p { margin: 0 0 0.9em; }
+
+/* ---------- News-Grid ---------- */
+.section-titel {
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--fcx-red);
+  padding-bottom: 6px;
+  margin: 0;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6mm;
+}
+.news-karte {
+  background: var(--fcx-white);
+  border: 1px solid #e5e2e1;
+  border-radius: var(--radius-content);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.news-karte .bild-platz {
+  background: var(--fcx-mist);
+  height: 30mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fcx-muted);
+  font-size: 0.72rem;
+  position: relative;
+}
+.news-karte .badges { position: absolute; top: 8px; left: 8px; display: flex; gap: 6px; }
+.news-karte .badge-datum,
+.news-karte .badge-kategorie {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  color: var(--fcx-white);
+}
+.news-karte .badge-datum { background: var(--fcx-red-deep); }
+.news-karte .badge-kategorie { background: var(--fcx-ink-soft); }
+.news-karte .inhalt { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.news-karte h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0;
+  line-height: 1.25;
+}
+.news-karte p {
+  font-size: 0.8rem;
+  color: var(--fcx-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Resultate-Band ---------- */
+.resultate-band {
+  background: var(--fcx-red);
+  color: var(--fcx-white);
+  padding: 10mm;
+}
+.resultate-band .section-titel {
+  color: var(--fcx-white);
+  border-bottom-color: var(--fcx-white);
+}
+.resultate-tabelle {
+  margin-top: 6mm;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.resultate-zeile {
+  display: flex;
+  justify-content: space-between;
+  background: var(--fcx-white);
+  color: var(--fcx-ink);
+  border-radius: var(--radius-content);
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+.resultate-zeile .resultat { font-weight: 800; }
+
+/* ---------- Agenda ---------- */
+.agenda-liste { display: flex; flex-direction: column; }
+.agenda-eintrag {
+  display: grid;
+  grid-template-columns: 30mm 1fr;
+  gap: 6mm;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e2e1;
+  align-items: baseline;
+}
+.agenda-eintrag .datum {
+  font-weight: 800;
+  color: var(--fcx-red-deep);
+  font-size: 0.85rem;
+}
+.agenda-eintrag .titel { font-weight: 700; font-size: 0.9rem; }
+.agenda-eintrag .ort { color: var(--fcx-muted); font-size: 0.8rem; }
+
+/* ---------- Junioren-Ecke ---------- */
+.junioren-box {
+  background: var(--fcx-mist);
+  border-radius: var(--radius-content);
+  padding: 8mm;
+}
+.junioren-box p { font-size: 0.9rem; line-height: 1.6; color: var(--fcx-ink); margin: 6px 0 0; }
+
+/* ---------- Sponsoren ---------- */
+.sponsoren-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4mm;
+}
+.sponsor-kachel {
+  background: var(--fcx-white);
+  border: 1px solid #e5e2e1;
+  border-radius: var(--radius-content);
+  height: 22mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fcx-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  filter: grayscale(100%);
+  opacity: 0.85;
+}
+
+/* ---------- Fusszeile ---------- */
+.footer-band {
+  margin-top: auto;
+  background: var(--fcx-ink);
+  color: var(--fcx-white);
+  padding: 8mm 10mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+.footer-band .verein { font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+.footer-band .kontakt { opacity: 0.8; }

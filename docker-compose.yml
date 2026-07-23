@@ -1,0 +1,9 @@
+services:
+  build:
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./content.mjs:/app/content.mjs
+      - ./templates.mjs:/app/templates.mjs
+      - ./style.css:/app/style.css
+      - ./assets:/app/assets
