@@ -42,7 +42,7 @@ OUT_DOCX = os.path.join(REPO, "FCS-Zytig Sommer 2026 ENTWURF.docx")
 IMG_CACHE = os.path.join(REPO, "output", "img-cache")
 FOTO_KLASSIFIKATION = os.environ.get(
     "FOTO_KLASSIFIKATION",
-    os.path.join(REPO, "output", "fotoklassifikation.txt"),
+    os.path.join(REPO, "assets", "fotoklassifikation.txt"),
 )
 
 RED = RGBColor(0xE6, 0x31, 0x24)
@@ -1207,6 +1207,11 @@ def main():
         extra=fcs1_einsatz, seitenumbruch=False,
         logos=[(os.path.join(INSERATE, "gasthaus-brueckli.png"), 7.0)])
 
+    # Mobiliar — fester Platz bei der 1. Mannschaft
+    add_centered_image(doc, os.path.join(INSERATE, "mobiliar.png"),
+                       width_cm=11.5, before=10)
+    add_inserat_hinweis(doc)
+
     team_artikel(
         "4. Liga · 2. Mannschaft",
         "Rückblick auf die Saison der 2. Mannschaft",
@@ -1214,6 +1219,11 @@ def main():
         "FCS2", "Schattdorf",
         [("Dress-Sponsor", "Gasthaus Brückli, Schattdorf")],
         bilder=("FCS 2_Web.jpg", "FCS 2 DerbySieg.jpeg"))
+
+    # Druckerei Kuster — fester Platz bei der 2. Mannschaft
+    add_centered_image(doc, os.path.join(INSERATE, "kuster.png"),
+                       width_cm=11.5, before=10)
+    add_inserat_hinweis(doc)
 
     # Inserate-Seite bei der 2. Mannschaft (fixer Platz in jeder Ausgabe)
     doc.add_page_break()
@@ -1231,6 +1241,14 @@ def main():
         [("Dress-Sponsor", "BINARY one GmbH")],
         bilder=("FCS 3.jpg",),
         extra=fcs3_stat)
+
+    # Inserate-Seite bei der 3. Mannschaft (fixer Platz in jeder Ausgabe)
+    doc.add_page_break()
+    add_centered_image(doc, os.path.join(INSERATE, "urner-kantonalbank.png"),
+                       width_cm=13.0, before=12, after=16)
+    add_centered_image(doc, os.path.join(INSERATE, "brand-maison-metall.png"),
+                       width_cm=9.5, before=16, after=6)
+    add_inserat_hinweis(doc)
 
     team_artikel(
         "Senioren 30+ Promotion · Team Uri",
@@ -1326,16 +1344,16 @@ def main():
                        width_cm=13.5, before=48)
     add_inserat_hinweis(doc)
 
-    # ---- FUSSBALLSCHULE
+    # ---- FUSSBALLSCHULE (aktuelle Flyer Herbst 2026)
     doc.add_page_break()
     add_ressort_band(doc, "Fussballschule")
-    add_centered_image(doc, os.path.join(INSERATE, "fussballschule-flyer.png"),
-                       width_cm=12.5, before=6)
-    par = doc.add_paragraph()
-    par.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = par.add_run("[PRÜFEN] Flyer «Frühling 2026» aus der letzten Ausgabe "
-                      "— falls vorhanden, aktuellen Flyer einsetzen.")
-    _set_font(run, size=7.5, color=MUTED, italic=True)
+    add_centered_image(doc, os.path.join(INSERATE,
+                                         "fussballschule-herbst26.png"),
+                       height_cm=21.5, before=6)
+    doc.add_page_break()
+    add_centered_image(doc, os.path.join(INSERATE,
+                                         "schnuppertraining-herbst26.png"),
+                       height_cm=23.5, before=6)
 
     # ---- TRAINER GESUCHT
     doc.add_page_break()
