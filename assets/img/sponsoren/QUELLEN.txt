@@ -1,0 +1,28 @@
+Herkunft der Sponsorenlogos (Stand 28.07.2026) — alle Farbversionen.
+
+Team-Sponsoren-Set der Vereinswebsite (fcschattdorf.ch/aktive/<mannschaft>,
+Ordner /images/sponsoren/teamsponsor/):
+  axanova.png          963 x  870   axanova.jpg
+  kebab-huesli.png     304 x   82   kebab-huesli.jpg
+  maler-nideroest.png  565 x  258   maler-niederoest.jpg
+  porr.png             511 x  324   porr.jpg
+  raiffeisen.png      1600 x  235   2560px-Raiffeisen_Schweiz_Logo.png
+  schelbert.png        300 x   82   Schelbert_AG.png
+
+Sponsorensektion der Vereinswebsite (/images/sponsoren/co-sponsor/, Farbversion;
+im Footer liegen nur die grauen Varianten):
+  herger-kuechen.png  1500 x  589   herger-kuechen.png
+  imholz-sport.png     958 x  513   imholz-sport.png
+
+Direkt von den Firmen (Vektor, deshalb beliebig scharf):
+  feritec.png         1200 x  292   feritec.ch/templates/ubiqdesign/images/logo.svg
+  muoser.png          1200 x  222   muoser.ch/.../logo_muoser_blau.svg
+  teko.png            1200 x  427   teko-ag.ch/.../teko-oberflaechentechnik-ag-logo.svg
+
+Weitere:
+  gasthaus-brueckli.png  384 x 254  neues Logo von Heinz (via Ralph, Juli 2026)
+  gamma.png             1238 x 903  bestehendes Vereins-Asset (Farbversion)
+
+Ohne Logo (Absprache Joel, 28.07.2026):
+  Mövenpick        Datei 2560px-Mövenpick.png auf der Website liefert 404
+  Lindenapotheke   Logo läge auf der Website vor (300 x 80), soll aber weg
